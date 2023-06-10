@@ -14,8 +14,8 @@ export const handler = async(event) => {
 
 try {
     let results = await people.scan().exec();
-    // console.log('results----', results);
-    response.body = JSON.stringify('watermelon');
+
+    response.body = JSON.stringify(results);
 response.statusCode = 200;
 }catch(err){
     response.body = JSON.stringify(err.message);
