@@ -10,9 +10,10 @@ const people = dynamoose.model('people', schema);
 export const handler = async(event) => {
 
   const response = {statusCode: null, body: null,};
-  
+  console.log('I am here');
   try {
     let results = await people.scan().exec();
+    console.log('TTTTTTT', results);
     response.body = JSON.stringify(results);
     response.statusCode = 200;
   }catch(err){
