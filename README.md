@@ -42,7 +42,7 @@ Routes should integrate with the appropriate Lambda function to perform the oper
 
 ### Documentation
 
-Had some issues with uploading the zip files. They were 4.2mb but should've been able to code in the editor on aws. Approached that issue by uploading seperate zip files for each of the methods and just coding on my local. Was having issues with accessibility as well, even though all of my roles have full access dynamodb permissions. Met up with Ryan G over the weekend to find a solution but wasn't able to figure it out.
+Had some issues with uploading the zip files. They were 4.2mb but should've been small enough to able to code in the editor on aws. Approached that issue by uploading seperate zip files for each of the methods and just coding on my local. Was having issues with accessibility as well, even though all of my roles have full access dynamodb permissions. Met up with Ryan Gallaway over the weekend to find a solution but wasn't able to figure out why it wasn't recognizing that.
 
 **What is the root URL to your API?**
 [Root URL](https://uoagvvssjh.execute-api.us-east-2.amazonaws.com/test)
