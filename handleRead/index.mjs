@@ -19,5 +19,6 @@ export const handler = async(event) => {
     response.body = JSON.stringify(err.message);
     response.statusCode = 500;
   }
+
   return response;
 };

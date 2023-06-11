@@ -13,7 +13,7 @@ export const handler = async(event) => {
 
   try {
     let results = await people.delete(id);
-    console.log('results:', results);
+    // console.log('results:', results);
     
     response.body = JSON.stringify(results);
     response.statusCode = 200;
