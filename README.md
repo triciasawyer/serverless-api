@@ -1,55 +1,54 @@
-# serverless-api
+# Serverless API with DynamoDB
 
-Database: DynamoDB
+## Overview
 
-#### Tasks & Requirements
+This project involves the creation of a single-resource REST API using AWS Cloud Services, specifically AWS Lambda, API Gateway, and DynamoDB. The goal is to construct a robust API with CRUD (Create, Read, Update, Delete) functionality.
 
-Create a single resource REST API using a domain model of your choosing, constructed using AWS Cloud Services.
+### Database: DynamoDB
 
-1 Table required.
+One table is required to store the data model.
 
-#### Routing: API Gateway
+### API Routes
 
-POST
-/people - Given a JSON body, inserts a record into the database.
-returns an object representing one record, by its id (##).
+#### POST `/people`
 
-GET
-/people - returns an array of objects representing the records in the database.
-/people/## - returns an object representing one record, by its id (##).
+- Inserts a record into the database.
+- Expects a JSON body.
+- Returns an object representing the inserted record by its ID.
 
-PUT
-/people/## - Given a JSON body and an ID (##), updates a record in the database.
-returns an object representing one record, by its id (##).
+#### GET `/people`
 
-DELETE
-/people/## - Given an id (##) removes the matching record from the database.
-returns an empty object.
+- Returns an array of objects representing all records in the database.
 
-CRUD Operation Handlers: Lambda Functions
-Implementation Notes
-Work in a non-main branch in a new repository called ‘serverless-api’. While your code will all reside in a single repo, your functions will need to be individually .zipped and deployed using common libraries (node_modules) and schema files.
+#### Get `/people/##`
 
-#### Implementation notes
+- Returns an object representing one record by its ID (##).
 
-Create one table for one data model at Dynamo DB.
-Create a Dynamoose schema to define the structure of your table.
-Write lambda functions that will separately perform the proper CRUD operation on the database.
-Create your routes using API Gateway.
-Routes should integrate with the appropriate Lambda function to perform the operation.
+#### PUT `/people/##`
+
+- Updates a record in the database.
+- Expects a JSON body and an ID (##).
+- Returns an object representing the updated record by its ID.
+
+#### DELETE `/people/##`
+
+- Removes a record from the database by its ID (##).
+- Returns an empty object.
+
+### Implementation Steps
+
+1. Create a single DynamoDB table for your chosen data model.
+2. Define the table structure using a Dynamoose schema.
+3. Write Lambda functions for each CRUD operation.
+4. Configure routes using API Gateway.
+5. Ensure that routes integrate with the appropriate Lambda function to perform CRUD operations.
 
 ### Documentation
 
-Had some issues with uploading the zip files. They were 4.2mb but should've been small enough to able to code in the editor on AWS. Approached that issue by uploading seperate zip files for each of the methods and just added code on my local. Was having issues with accessibility as well, even though all of my roles have full access dynamodb permissions. Met up with Ryan Gallaway over the weekend to find a solution but wasn't able to figure out why it wasn't recognizing that.
+Issues related to uploading zip files and accessibility were encountered during development. Despite the zip files being within the size limit, the issue persisted. To work around this problem, separate zip files for each method were uploaded, and code modifications were made locally.
 
-**What is the root URL to your API?**
+<!-- [Serverless API Root URL](https://uoagvvssjh.execute-api.us-east-2.amazonaws.com/test) -->
 
-[Root URL](https://uoagvvssjh.execute-api.us-east-2.amazonaws.com/test)
+### Input Requirements
 
-**What inputs do they require?**
-
-Only the methods GET, PUT, and DELETE require an ID to the API gateway to execute their functionality.
-
-**What output do they return?**
-
-Output is stated above within the routes
+For GET, PUT, and DELETE methods, an ID is required in the API Gateway to execute their functionality.
